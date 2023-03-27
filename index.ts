@@ -15,9 +15,6 @@ export class Animal {
 }
 
 export class Dog extends Animal {
-  legs: number;
-  tail: boolean;
-
   constructor(legs?, tail?) {
     super(legs, tail);
     console.log(`Dog constructor:`, legs, tail);
