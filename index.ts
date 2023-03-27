@@ -33,6 +33,11 @@ let animal6 = Object.assign(new Animal(), dog1);
 let animal7 = { ...dog1, hair: true } as Animal;
 let animal8 = /** @type {Animal} */ { ...dog1, hair: true };
 
+const merge = (...objects): Animal =>
+  objects.reduce((acc, cur): Animal => ({ ...acc, ...cur } as Animal));
+
+let animal9: Animal = merge(dog1, { hair: true });
+
 console.log(`dog1 is `, dog1 instanceof Dog); // true  -- true
 console.log(`animal1 is `, animal1 instanceof Animal); // false -- true
 console.log(`animal2 is `, animal2 instanceof Animal); // false -- true
@@ -42,3 +47,6 @@ console.log(`animal5 is `, animal5 instanceof Animal); // false -- false
 console.log(`animal6 is `, animal6 instanceof Animal); // true -- true
 console.log(`animal7 is `, animal7 instanceof Animal); // false -- false
 console.log(`animal8 is `, animal8 instanceof Animal); // false -- false
+console.log(`animal9 is `, animal9 instanceof Animal); // false -- false
+
+console.log(`animal9 is `, animal9); // false -- false
